@@ -1,0 +1,86 @@
+== DATASET OVERVIEW ==
+Shape: (140, 10); roads: 14; years: 2015-2024
+Dtypes:
+road                   str
+year                 int64
+aadt               float64
+crashes              int64
+prev_crashes       float64
+road_length_km     float64
+total_lanes_avg    float64
+lane_km            float64
+pandemic             int64
+is_test_road         int64
+Summary statistics:
+                 count       mean       std      min        25%        50%        75%        max
+year             140.0    2019.50      2.88   2015.0    2017.00    2019.50    2022.00    2024.00
+aadt             140.0  179243.31  89681.47  69687.0  104992.25  172752.50  224467.25  419952.00
+crashes          140.0    2499.49   3120.65    126.0     779.75    1306.50    2563.75   17382.00
+prev_crashes     126.0    2483.44   3157.09    126.0     793.75    1288.00    2537.25   17382.00
+road_length_km   140.0      71.13    173.34      3.6       7.00      11.65      43.87     684.86
+total_lanes_avg  140.0       8.61      3.26      5.0       6.00       8.00      10.00      18.00
+lane_km          140.0     474.16   1030.07     28.8      60.80      91.00     396.48    4109.13
+pandemic         140.0       0.20      0.40      0.0       0.00       0.00       0.00       1.00
+is_test_road     140.0       0.07      0.26      0.0       0.00       0.00       0.00       1.00
+
+== DATA QUALITY ==
+Missing values per column:
+road                0
+year                0
+aadt                0
+crashes             0
+prev_crashes       14
+road_length_km      0
+total_lanes_avg     0
+lane_km             0
+pandemic            0
+is_test_road        0
+Duplicate road-year rows: 0
+Rows with non-positive AADT or crashes: 0
+Rows usable for modelling (prev_crashes known): 126
+
+EDSA share of all crashes: 31.4%
+
+Total crashes per year (all roads):
+year
+2015    29825
+2016    37046
+2017    36848
+2018    47076
+2019    49453
+2020    23793
+2021    23619
+2022    29667
+2023    35586
+2024    37016
+
+Correlation AADT vs crashes (all rows): pearson 0.743, spearman 0.726
+Excluding EDSA: pearson 0.601, spearman 0.661
+
+Correlation matrix:
+              crashes   aadt  prev_crashes  lane_km   year  pandemic
+crashes         1.000  0.734         0.923   -0.121 -0.062    -0.143
+aadt            0.734  1.000         0.706   -0.173  0.231    -0.024
+prev_crashes    0.923  0.706         1.000   -0.121 -0.048     0.023
+lane_km        -0.121 -0.173        -0.121    1.000 -0.000     0.000
+year           -0.062  0.231        -0.048   -0.000  1.000     0.104
+pandemic       -0.143 -0.024         0.023    0.000  0.104     1.000
+
+Variance inflation factors (numeric features):
+aadt            2.38
+prev_crashes    2.22
+lane_km         1.03
+year            1.19
+pandemic        1.02
+
+Target skewness: raw 2.58, log10 0.30
+
+IQR outliers in crashes: 17 rows; roads: ['C.P. GARCIA /KATIPUNAN AVE. / TANDANG SORA', 'EDSA']
+EDSA rows among outliers: 9
+Correlation prev_crashes vs crashes: 0.923
+Year-over-year ratio: median 1.09, 5th-95th pct 0.45-1.60
+Pandemic effect (total crashes):
+year
+2019    49453
+2020    23793
+2021    23619

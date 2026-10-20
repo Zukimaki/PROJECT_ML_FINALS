@@ -1,0 +1,128 @@
+{
+  "model_name": "Gradient Boosting Regressor",
+  "best_params": {
+    "learning_rate": 0.1,
+    "max_depth": 2,
+    "n_estimators": 100
+  },
+  "features": [
+    "aadt",
+    "prev_crashes",
+    "lane_km",
+    "year",
+    "pandemic"
+  ],
+  "target": "crashes",
+  "train_years": [
+    2016,
+    2022
+  ],
+  "test_years": [
+    2023,
+    2024
+  ],
+  "n_train": 98,
+  "n_test": 28,
+  "primary_metric": "MAE",
+  "validation": [
+    {
+      "model": "Gradient Boosting Regressor",
+      "CV_MAE_mean": 821.2099,
+      "CV_MAE_std": 449.9013,
+      "CV_RMSE_mean": 1421.9811,
+      "CV_RMSE_std": 533.7111,
+      "CV_R2_mean": 0.5639,
+      "CV_R2_std": 0.4602,
+      "CV_MAPE_%_mean": 62.3895,
+      "CV_MAPE_%_std": 80.3535
+    },
+    {
+      "model": "Random Forest Regressor",
+      "CV_MAE_mean": 864.1741,
+      "CV_MAE_std": 452.9666,
+      "CV_RMSE_mean": 1507.621,
+      "CV_RMSE_std": 542.3015,
+      "CV_R2_mean": 0.536,
+      "CV_R2_std": 0.5078,
+      "CV_MAPE_%_mean": 63.6337,
+      "CV_MAPE_%_std": 80.6508
+    },
+    {
+      "model": "Linear Regression",
+      "CV_MAE_mean": 1238.5748,
+      "CV_MAE_std": 510.0602,
+      "CV_RMSE_mean": 1729.1782,
+      "CV_RMSE_std": 971.436,
+      "CV_R2_mean": 0.2453,
+      "CV_R2_std": 1.159,
+      "CV_MAPE_%_mean": 121.1758,
+      "CV_MAPE_%_std": 78.847
+    }
+  ],
+  "final_test_metrics": {
+    "MAE": 405.5429,
+    "RMSE": 526.2483,
+    "R2": 0.9625,
+    "MAPE_%": 22.3517
+  },
+  "naive_baseline_test_metrics": {
+    "MAE": 305.6071,
+    "RMSE": 446.2773,
+    "R2": 0.973,
+    "MAPE_%": 14.2797
+  },
+  "edsa_unseen_road": [
+    {
+      "model": "Linear Regression",
+      "MAE": 2181.8228,
+      "RMSE": 3540.6356,
+      "R2": 0.1966,
+      "MAPE_%": 22.7631
+    },
+    {
+      "model": "Random Forest Regressor",
+      "MAE": 4412.4363,
+      "RMSE": 5837.5115,
+      "R2": -1.1839,
+      "MAPE_%": 32.6114
+    },
+    {
+      "model": "Gradient Boosting Regressor",
+      "MAE": 4205.7741,
+      "RMSE": 5693.9766,
+      "R2": -1.0779,
+      "MAPE_%": 30.5037
+    },
+    {
+      "model": "Naive baseline (prev year)",
+      "MAE": 2469.7778,
+      "RMSE": 3934.6538,
+      "R2": 0.0078,
+      "MAPE_%": 26.4324
+    }
+  ],
+  "training_ranges": {
+    "aadt": [
+      70012.0,
+      405882.0
+    ],
+    "prev_crashes": [
+      126.0,
+      17382.0
+    ],
+    "lane_km": [
+      28.8,
+      4109.13
+    ],
+    "year": [
+      2016.0,
+      2022.0
+    ],
+    "pandemic": [
+      0.0,
+      1.0
+    ]
+  },
+  "random_state": 42,
+  "sklearn_version": "1.9.0"
+}
